@@ -712,6 +712,24 @@ require('lazy').setup({
         },
       }
 
+      if vim.fn.executable 'nixd' == 1 then
+        servers.nixd = {
+          require('lspconfig').nixd.setup {
+            cmd = { 'nixd' },
+            settings = {
+              nixd = {
+                nixpkgs = {
+                  expr = 'import <nixpkgs> { }',
+                },
+                formatting = {
+                  command = { 'aljandra' },
+                },
+              },
+            },
+          },
+        }
+      end
+
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -782,6 +800,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        nix = { 'alejandra' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
