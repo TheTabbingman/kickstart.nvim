@@ -9,6 +9,7 @@ return {
   map({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = 'Copy line to system clipboard' }),
   map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' }),
   map('n', 's', ':HopPattern <CR>', { silent = true }),
+  map('n', '<leader>h', vim.lsp.buf.hover, { desc = 'Show hover info' }),
 
   -- barbar keymaps
   -- Move to previous/next

@@ -50,4 +50,12 @@ return {
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
+  {
+    'MysticalDevil/inlay-hints.nvim',
+    event = 'LspAttach',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    config = function()
+      require('inlay-hints').setup()
+    end,
+  },
 }
