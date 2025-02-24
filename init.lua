@@ -103,12 +103,12 @@ vim.g.have_nerd_font = true
 
 if vim.fn.has 'win32' == 1 then
   -- Set up shell to use PowerShell in Neovim
-  vim.opt.shell = 'powershell.exe'
-  vim.opt.shellxquote = ''
-  vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
-  vim.opt.shellquote = ''
-  vim.opt.shellpipe = '| Out-File -Encoding UTF8 %s'
-  vim.opt.shellredir = '| Out-File -Encoding UTF8 %s'
+  vim.o.shell = 'pwsh'
+  vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
+  vim.o.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  vim.o.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  vim.o.shellquote = ''
+  vim.o.shellxquote = ''
 end
 
 require 'custom.keymaps.keymaps'
