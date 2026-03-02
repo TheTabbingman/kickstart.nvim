@@ -713,7 +713,7 @@ require('lazy').setup({
       }
 
       if vim.fn.executable 'nixd' == 1 then
-        require('lspconfig').nixd.setup {
+        vim.lsp.config.nixd = {
           cmd = { 'nixd' },
           settings = {
             nixd = {
@@ -721,11 +721,12 @@ require('lazy').setup({
                 expr = 'import <nixpkgs> { }',
               },
               formatting = {
-                command = { 'aljandra' },
+                command = { 'alejandra' },
               },
             },
           },
         }
+        vim.lsp.enable('nixd')
       end
 
       -- Ensure the servers and tools above are installed
