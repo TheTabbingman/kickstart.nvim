@@ -3,6 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 
+---@module 'lazy'
+---@type LazySpec
 return {
   { 'wakatime/vim-wakatime', lazy = false },
   -- {
