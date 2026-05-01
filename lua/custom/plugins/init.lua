@@ -6,7 +6,6 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
-  { 'wakatime/vim-wakatime', lazy = false },
   -- {
   --   'nvim-tree/nvim-tree.lua',
   --   opts = {},
