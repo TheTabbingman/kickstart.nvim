@@ -681,6 +681,14 @@ require('lazy').setup({
               formatting = {
                 command = { 'alejandra' },
               },
+              options = {
+                nixos = {
+                  expr = [[(builtins.getFlake "/etc/nixos").nixosConfigurations.nixos-gamer.options]]
+                },
+                home_manager = {
+                  expr = [[(builtins.getFlake "/etc/nixos").nixosConfigurations."nixos-gamer".options.home-manager.users.type.getSubOptions [] ]]
+                },
+              },
             },
           },
         }
